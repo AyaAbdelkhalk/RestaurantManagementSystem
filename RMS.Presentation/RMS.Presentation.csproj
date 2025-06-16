@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RMS.Application\RMS.Application.csproj" />
+    <ProjectReference Include="..\RMS.Infrastructure\RMS.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

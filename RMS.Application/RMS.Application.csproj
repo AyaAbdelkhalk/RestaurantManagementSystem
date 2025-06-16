@@ -10,4 +10,29 @@
     <ProjectReference Include="..\RMS.Core\RMS.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\Category\" />
+    <Folder Include="Services\Coupon\" />
+    <Folder Include="Services\Customer\" />
+    <Folder Include="Services\MenuItem\" />
+    <Folder Include="Services\Reservation\" />
+    <Folder Include="Services\Table\" />
+    <Folder Include="Services\Staff\" />
+    <Folder Include="Services\OrderItem\" />
+    <Folder Include="Services\Order\" />
+    <Folder Include="ViewModels\CategoryViewModel\" />
+    <Folder Include="ViewModels\CouponViewModel\" />
+    <Folder Include="ViewModels\CustomerViewModel\" />
+    <Folder Include="ViewModels\MenuItemViewModel\" />
+    <Folder Include="ViewModels\TableViewModel\" />
+    <Folder Include="ViewModels\StaffViewModel\" />
+    <Folder Include="ViewModels\ReservationViewModel\" />
+    <Folder Include="ViewModels\OrderItemViewModel\" />
+    <Folder Include="ViewModels\OrderViewModel\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Mapster" Version="7.4.0" />
+  </ItemGroup>
+
 </Project>
