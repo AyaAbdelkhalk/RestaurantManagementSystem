@@ -2,7 +2,15 @@ using Microsoft.EntityFrameworkCore;
 using RMS.Application.Interfaces;
 using RMS.Infrastructure;
 using RMS.Infrastructure.Repository;
-
+using RMS.Application.Services;
+using RMS.Application.Services.Category;
+using RMS.Application.Services.Coupon;
+using RMS.Application.Services.Customer;
+using RMS.Application.Services.Order;
+using RMS.Application.Services.OrderItem;
+using RMS.Application.Services.Table;
+using RMS.Application.Services.MenuItem;
+using RMS.Application.Services.Reservation;
 namespace RMS.Presentation
 {
     public class Program
@@ -17,17 +25,28 @@ namespace RMS.Presentation
             //Register Repositories
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
             builder.Services.AddScoped<ICouponRepository, CouponRepository>();
-            builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IOrderRepository, OrderRepository>();
             builder.Services.AddScoped<IOrderItemRepository, OrderItemRepository>();
             builder.Services.AddScoped<IMenuItemRepository, MenuItemRepository>();
             builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
-            builder.Services.AddScoped<IStaffRepository, StaffRepository>();
             builder.Services.AddScoped<ITableRepository, TableRepository>();
+
+            builder.Services.AddScoped<RMSDbContext, RMSDbContext>();
 
             // Register the DbContext 
             builder.Services.AddDbContext<RMSDbContext>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("RMSConnection")));
+
+            //Register Services
+            builder.Services.AddScoped<ICategoryServices, CategoryServices>();
+            builder.Services.AddScoped<ICouponServices, CouponServices>();
+            builder.Services.AddScoped<IUserServices, UserServices>();
+            builder.Services.AddScoped<IOrderServices, OrderServices>();
+            builder.Services.AddScoped<IOrderItemServices, OrderItemServices>();
+            builder.Services.AddScoped<IMenuItemServices, MenuItemServices>();
+            builder.Services.AddScoped<IReservationServices, ReservationServices>();
+            builder.Services.AddScoped<ITableServices, TableServices>();
 
 
 

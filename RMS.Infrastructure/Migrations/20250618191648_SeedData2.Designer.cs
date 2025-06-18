@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RMS.Infrastructure;
 
@@ -11,9 +12,11 @@ using RMS.Infrastructure;
 namespace RMS.Infrastructure.Migrations
 {
     [DbContext(typeof(RMSDbContext))]
-    partial class RMSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250618191648_SeedData2")]
+    partial class SeedData2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,7 +78,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 571, DateTimeKind.Utc).AddTicks(3345),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 14, DateTimeKind.Utc).AddTicks(5572),
                             IsActive = false,
                             IsDeleted = false,
                             Name = "Appetizers"
@@ -83,7 +86,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 571, DateTimeKind.Utc).AddTicks(4733),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 14, DateTimeKind.Utc).AddTicks(6992),
                             Description = "Main dishes including burgers and pizzas",
                             IsActive = false,
                             IsDeleted = false,
@@ -92,7 +95,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             CategoryId = 3,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 571, DateTimeKind.Utc).AddTicks(4925),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 14, DateTimeKind.Utc).AddTicks(7183),
                             IsActive = false,
                             IsDeleted = false,
                             Name = "Desserts"
@@ -100,7 +103,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             CategoryId = 4,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 571, DateTimeKind.Utc).AddTicks(4926),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 14, DateTimeKind.Utc).AddTicks(7184),
                             Description = "Beverages including soft drinks and juices",
                             IsActive = false,
                             IsDeleted = false,
@@ -170,7 +173,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             CouponId = 1,
                             Code = "HAPPYHOUR20",
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 573, DateTimeKind.Utc).AddTicks(3044),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(4349),
                             DiscountPercentage = 20m,
                             IsActive = true,
                             IsDeleted = false
@@ -179,7 +182,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             CouponId = 2,
                             Code = "BIGORDER10",
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 573, DateTimeKind.Utc).AddTicks(4206),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(5459),
                             DiscountPercentage = 10m,
                             IsActive = true,
                             IsDeleted = false
@@ -188,7 +191,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             CouponId = 3,
                             Code = "STUDENT10",
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 573, DateTimeKind.Utc).AddTicks(4209),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(5462),
                             DiscountPercentage = 10m,
                             IsActive = true,
                             IsDeleted = false
@@ -197,7 +200,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             CouponId = 4,
                             Code = "SENIOR15",
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 573, DateTimeKind.Utc).AddTicks(4247),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(5463),
                             DiscountPercentage = 15m,
                             IsActive = true,
                             IsDeleted = false
@@ -276,7 +279,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             MenuItemId = 1,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 571, DateTimeKind.Utc).AddTicks(9937),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(2548),
                             DailyOrderCount = 0,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -288,7 +291,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             MenuItemId = 2,
                             CategoryId = 1,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1138),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(3762),
                             DailyOrderCount = 0,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -300,7 +303,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             MenuItemId = 3,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1140),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(3765),
                             DailyOrderCount = 0,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -312,7 +315,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             MenuItemId = 4,
                             CategoryId = 3,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1142),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(3766),
                             DailyOrderCount = 0,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -324,7 +327,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             MenuItemId = 5,
                             CategoryId = 4,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1143),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(3767),
                             DailyOrderCount = 0,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -336,7 +339,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             MenuItemId = 6,
                             CategoryId = 3,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1144),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(3768),
                             DailyOrderCount = 0,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -348,7 +351,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             MenuItemId = 7,
                             CategoryId = 4,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1146),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(3769),
                             DailyOrderCount = 0,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -360,7 +363,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             MenuItemId = 8,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1147),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(3771),
                             DailyOrderCount = 0,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -372,7 +375,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             MenuItemId = 9,
                             CategoryId = 2,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1148),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(3772),
                             DailyOrderCount = 0,
                             IsAvailable = true,
                             IsDeleted = false,
@@ -476,7 +479,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             OrderId = 1,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(6111),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(8748),
                             CustomerId = 1,
                             DiscountAmount = 0m,
                             IsDeleted = false,
@@ -491,7 +494,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             OrderId = 2,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(7771),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(374),
                             CustomerId = 2,
                             DiscountAmount = 0m,
                             IsDeleted = false,
@@ -504,7 +507,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             OrderId = 3,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(7774),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(377),
                             CustomerId = 3,
                             DiscountAmount = 0m,
                             IsDeleted = false,
@@ -517,7 +520,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             OrderId = 4,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(7776),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(378),
                             CustomerId = 1,
                             DiscountAmount = 0m,
                             IsDeleted = false,
@@ -530,7 +533,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             OrderId = 5,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(7777),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(379),
                             CustomerId = 2,
                             DeliveryAddress = "123 Main St",
                             DiscountAmount = 0m,
@@ -604,7 +607,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(8356),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(1038),
                             IsDeleted = false,
                             MenuItemId = 1,
                             OrderId = 1,
@@ -614,7 +617,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(9056),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(1745),
                             IsDeleted = false,
                             MenuItemId = 3,
                             OrderId = 1,
@@ -624,7 +627,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             Id = 3,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(9057),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(1746),
                             IsDeleted = false,
                             MenuItemId = 2,
                             OrderId = 2,
@@ -634,7 +637,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             Id = 4,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(9058),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(1748),
                             IsDeleted = false,
                             MenuItemId = 5,
                             OrderId = 2,
@@ -644,7 +647,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             Id = 5,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(9059),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(1748),
                             IsDeleted = false,
                             MenuItemId = 4,
                             OrderId = 3,
@@ -654,7 +657,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             Id = 6,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(9060),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(1749),
                             IsDeleted = false,
                             MenuItemId = 6,
                             OrderId = 3,
@@ -737,7 +740,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             ReservationId = 1,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(9495),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(2168),
                             CustomerId = 2,
                             DurationInMinutes = 90,
                             IsDeleted = false,
@@ -751,7 +754,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             ReservationId = 2,
                             AssignedStaffId = 6,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 573, DateTimeKind.Utc).AddTicks(2309),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(3623),
                             CustomerId = 2,
                             DurationInMinutes = 90,
                             IsDeleted = false,
@@ -765,7 +768,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             ReservationId = 3,
                             AssignedStaffId = 5,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 573, DateTimeKind.Utc).AddTicks(2510),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 16, DateTimeKind.Utc).AddTicks(3819),
                             CustomerId = 1,
                             DurationInMinutes = 60,
                             IsDeleted = false,
@@ -830,7 +833,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             TableId = 1,
                             Capacity = 4,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1939),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(4605),
                             IsAvailable = false,
                             IsDeleted = false,
                             TableNumber = 1
@@ -839,7 +842,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             TableId = 2,
                             Capacity = 2,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(2733),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(5373),
                             IsAvailable = false,
                             IsDeleted = false,
                             TableNumber = 2
@@ -848,7 +851,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             TableId = 3,
                             Capacity = 6,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(2735),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(5374),
                             IsAvailable = true,
                             IsDeleted = false,
                             TableNumber = 3
@@ -857,7 +860,7 @@ namespace RMS.Infrastructure.Migrations
                         {
                             TableId = 4,
                             Capacity = 8,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(2736),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(5375),
                             IsAvailable = true,
                             IsDeleted = false,
                             TableNumber = 4
@@ -938,7 +941,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             UserId = 1,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(3739),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(6308),
                             Email = "aya.khaled@example.com",
                             HashedPassword = "123456",
                             IsDeleted = false,
@@ -949,7 +952,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             UserId = 2,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(4911),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(7478),
                             Email = "doha.ezzat@example.com",
                             HashedPassword = "123456",
                             IsDeleted = false,
@@ -960,7 +963,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             UserId = 3,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(4913),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(7480),
                             Email = "jameela.abdulrahman@example.com",
                             HashedPassword = "123456",
                             IsDeleted = false,
@@ -971,7 +974,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             UserId = 4,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(4915),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(7501),
                             Email = "shimaa.mohamed@example.com",
                             HashedPassword = "123456",
                             IsDeleted = false,
@@ -982,7 +985,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             UserId = 5,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(4916),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(7503),
                             Email = "karim.elshenawy@rms.com",
                             HashedPassword = "123456",
                             IsDeleted = false,
@@ -994,7 +997,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             UserId = 6,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(5379),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(7961),
                             Email = "laila.hassan@rms.com",
                             HashedPassword = "123456",
                             IsDeleted = false,
@@ -1006,7 +1009,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             UserId = 7,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(5381),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(7964),
                             Email = "mohamed.tarek@rms.com",
                             HashedPassword = "123456",
                             IsDeleted = false,
@@ -1018,7 +1021,7 @@ namespace RMS.Infrastructure.Migrations
                         new
                         {
                             UserId = 8,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(5383),
+                            CreatedAt = new DateTime(2025, 6, 18, 19, 16, 48, 15, DateTimeKind.Utc).AddTicks(7966),
                             Email = "sara.mostafa@rms.com",
                             HashedPassword = "123456",
                             IsDeleted = false,

@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RMS.Application.Interfaces;
+using RMS.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,15 +20,27 @@ namespace RMS.Infrastructure.Repository
         }
         public async Task<T> AddAsync(T entity)
         {
-            _dbSet.Add(entity);
+            await _dbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
             return entity;
         }
 
         public async Task<T> DeleteAsync(int id)
         {
+            //soft delete
             var entity = await _dbSet.FindAsync(id);
-            _dbSet.Remove(entity);
+            var baseEntity = entity as BaseEntity;
+            if (baseEntity != null)
+            {
+                baseEntity.IsDeleted = true;
+                baseEntity.DeletedAt = DateTime.UtcNow;
+                //_dbSet.Update(baseEntity);
+                //ملهاش لازمه عشان الفايند لما بتجيب انتيتي بتبقى تراكد ف بيتسمع من السيف اتشينزيز 
+            }
+            else
+            {
+                _dbSet.Remove(entity);
+            }
             await _context.SaveChangesAsync();
             return entity;
         }
@@ -39,7 +52,7 @@ namespace RMS.Infrastructure.Repository
 
         public async Task<T?> GetByIdAsync(int id)
         {
-             return _dbSet.FindAsync(id).Result;
+             return await _dbSet.FindAsync(id);
         }
 
         public async Task<T> UpdateAsync(T entity)

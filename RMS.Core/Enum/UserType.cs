@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RMS.Core.Models;
 
-namespace RMS.Application.Interfaces
+namespace RMS.Core.Enum
 {
-    public interface IStaffRepository : IGenericRepository<Staff>
+    public enum UserType
     {
+        Customer = 0,
+        Staff = 1,
+        Admin = 2
     }
 }

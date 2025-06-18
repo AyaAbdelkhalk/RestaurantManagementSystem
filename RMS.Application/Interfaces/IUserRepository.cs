@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RMS.Application.Interfaces
 {
-    public interface ICustomerRepository : IGenericRepository<Customer>
+    public interface IUserRepository : IGenericRepository<User>
     {
     }
 }

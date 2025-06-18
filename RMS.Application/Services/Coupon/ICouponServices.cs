@@ -4,14 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RMS.Core.Enum
+namespace RMS.Application.Services.Coupon
 {
-    public enum Coupon
+    public interface ICouponServices
     {
-        None = 0,
-        HappyHour,
-        BulkOrder,
-        Student,
-        Senior
     }
 }

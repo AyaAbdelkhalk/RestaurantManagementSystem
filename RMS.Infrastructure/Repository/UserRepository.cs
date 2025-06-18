@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace RMS.Infrastructure.Repository
 {
-    public class CustomerRepository : GenericRepository<Customer>, ICustomerRepository
+    public class UserRepository : GenericRepository<User>, IUserRepository
     {
-        public CustomerRepository(RMSDbContext context) : base(context)
+        public UserRepository(RMSDbContext context) : base(context)
         {
         }
     }

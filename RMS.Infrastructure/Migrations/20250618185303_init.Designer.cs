@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RMS.Infrastructure;
 
@@ -11,9 +12,11 @@ using RMS.Infrastructure;
 namespace RMS.Infrastructure.Migrations
 {
     [DbContext(typeof(RMSDbContext))]
-    partial class RMSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250618185303_init")]
+    partial class init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,42 +73,6 @@ namespace RMS.Infrastructure.Migrations
                     b.HasIndex("UpdatedBy");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            CategoryId = 1,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 571, DateTimeKind.Utc).AddTicks(3345),
-                            IsActive = false,
-                            IsDeleted = false,
-                            Name = "Appetizers"
-                        },
-                        new
-                        {
-                            CategoryId = 2,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 571, DateTimeKind.Utc).AddTicks(4733),
-                            Description = "Main dishes including burgers and pizzas",
-                            IsActive = false,
-                            IsDeleted = false,
-                            Name = "Main Dishes"
-                        },
-                        new
-                        {
-                            CategoryId = 3,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 571, DateTimeKind.Utc).AddTicks(4925),
-                            IsActive = false,
-                            IsDeleted = false,
-                            Name = "Desserts"
-                        },
-                        new
-                        {
-                            CategoryId = 4,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 571, DateTimeKind.Utc).AddTicks(4926),
-                            Description = "Beverages including soft drinks and juices",
-                            IsActive = false,
-                            IsDeleted = false,
-                            Name = "Drinks"
-                        });
                 });
 
             modelBuilder.Entity("RMS.Core.Models.Coupon", b =>
@@ -164,44 +131,6 @@ namespace RMS.Infrastructure.Migrations
                     b.HasIndex("UpdatedBy");
 
                     b.ToTable("Coupons");
-
-                    b.HasData(
-                        new
-                        {
-                            CouponId = 1,
-                            Code = "HAPPYHOUR20",
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 573, DateTimeKind.Utc).AddTicks(3044),
-                            DiscountPercentage = 20m,
-                            IsActive = true,
-                            IsDeleted = false
-                        },
-                        new
-                        {
-                            CouponId = 2,
-                            Code = "BIGORDER10",
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 573, DateTimeKind.Utc).AddTicks(4206),
-                            DiscountPercentage = 10m,
-                            IsActive = true,
-                            IsDeleted = false
-                        },
-                        new
-                        {
-                            CouponId = 3,
-                            Code = "STUDENT10",
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 573, DateTimeKind.Utc).AddTicks(4209),
-                            DiscountPercentage = 10m,
-                            IsActive = true,
-                            IsDeleted = false
-                        },
-                        new
-                        {
-                            CouponId = 4,
-                            Code = "SENIOR15",
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 573, DateTimeKind.Utc).AddTicks(4247),
-                            DiscountPercentage = 15m,
-                            IsActive = true,
-                            IsDeleted = false
-                        });
                 });
 
             modelBuilder.Entity("RMS.Core.Models.MenuItem", b =>
@@ -270,116 +199,6 @@ namespace RMS.Infrastructure.Migrations
                     b.HasIndex("UpdatedBy");
 
                     b.ToTable("MenuItems");
-
-                    b.HasData(
-                        new
-                        {
-                            MenuItemId = 1,
-                            CategoryId = 1,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 571, DateTimeKind.Utc).AddTicks(9937),
-                            DailyOrderCount = 0,
-                            IsAvailable = true,
-                            IsDeleted = false,
-                            Name = "Spring Rolls",
-                            PreparationTimeInMinutes = 0,
-                            UnitPrice = 5.99m
-                        },
-                        new
-                        {
-                            MenuItemId = 2,
-                            CategoryId = 1,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1138),
-                            DailyOrderCount = 0,
-                            IsAvailable = true,
-                            IsDeleted = false,
-                            Name = "Caesar Salad",
-                            PreparationTimeInMinutes = 0,
-                            UnitPrice = 7.99m
-                        },
-                        new
-                        {
-                            MenuItemId = 3,
-                            CategoryId = 2,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1140),
-                            DailyOrderCount = 0,
-                            IsAvailable = true,
-                            IsDeleted = false,
-                            Name = "Grilled Chicken",
-                            PreparationTimeInMinutes = 0,
-                            UnitPrice = 12.99m
-                        },
-                        new
-                        {
-                            MenuItemId = 4,
-                            CategoryId = 3,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1142),
-                            DailyOrderCount = 0,
-                            IsAvailable = true,
-                            IsDeleted = false,
-                            Name = "Chocolate Cake",
-                            PreparationTimeInMinutes = 0,
-                            UnitPrice = 4.99m
-                        },
-                        new
-                        {
-                            MenuItemId = 5,
-                            CategoryId = 4,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1143),
-                            DailyOrderCount = 0,
-                            IsAvailable = true,
-                            IsDeleted = false,
-                            Name = "Coca Cola",
-                            PreparationTimeInMinutes = 0,
-                            UnitPrice = 1.99m
-                        },
-                        new
-                        {
-                            MenuItemId = 6,
-                            CategoryId = 3,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1144),
-                            DailyOrderCount = 0,
-                            IsAvailable = true,
-                            IsDeleted = false,
-                            Name = "Cheesecake",
-                            PreparationTimeInMinutes = 0,
-                            UnitPrice = 6.50m
-                        },
-                        new
-                        {
-                            MenuItemId = 7,
-                            CategoryId = 4,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1146),
-                            DailyOrderCount = 0,
-                            IsAvailable = true,
-                            IsDeleted = false,
-                            Name = "Mango Juice",
-                            PreparationTimeInMinutes = 0,
-                            UnitPrice = 3.99m
-                        },
-                        new
-                        {
-                            MenuItemId = 8,
-                            CategoryId = 2,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1147),
-                            DailyOrderCount = 0,
-                            IsAvailable = true,
-                            IsDeleted = false,
-                            Name = "Spaghetti Carbonara",
-                            PreparationTimeInMinutes = 0,
-                            UnitPrice = 10.99m
-                        },
-                        new
-                        {
-                            MenuItemId = 9,
-                            CategoryId = 2,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1148),
-                            DailyOrderCount = 0,
-                            IsAvailable = true,
-                            IsDeleted = false,
-                            Name = "Vegetable Stir Fry",
-                            PreparationTimeInMinutes = 0,
-                            UnitPrice = 8.99m
-                        });
                 });
 
             modelBuilder.Entity("RMS.Core.Models.Order", b =>
@@ -471,77 +290,6 @@ namespace RMS.Infrastructure.Migrations
                     b.HasIndex("UpdatedBy");
 
                     b.ToTable("Orders");
-
-                    b.HasData(
-                        new
-                        {
-                            OrderId = 1,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(6111),
-                            CustomerId = 1,
-                            DiscountAmount = 0m,
-                            IsDeleted = false,
-                            Note = "No onions",
-                            OrderStatus = 0,
-                            OrderType = 0,
-                            TableId = 1,
-                            TaxPercentage = 0.085m,
-                            Total = 20m,
-                            TotalBeforeDiscounts = 20m
-                        },
-                        new
-                        {
-                            OrderId = 2,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(7771),
-                            CustomerId = 2,
-                            DiscountAmount = 0m,
-                            IsDeleted = false,
-                            OrderStatus = 2,
-                            OrderType = 1,
-                            TaxPercentage = 0.085m,
-                            Total = 15m,
-                            TotalBeforeDiscounts = 15m
-                        },
-                        new
-                        {
-                            OrderId = 3,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(7774),
-                            CustomerId = 3,
-                            DiscountAmount = 0m,
-                            IsDeleted = false,
-                            OrderStatus = 3,
-                            OrderType = 2,
-                            TaxPercentage = 0.085m,
-                            Total = 30m,
-                            TotalBeforeDiscounts = 30m
-                        },
-                        new
-                        {
-                            OrderId = 4,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(7776),
-                            CustomerId = 1,
-                            DiscountAmount = 0m,
-                            IsDeleted = false,
-                            OrderStatus = 0,
-                            OrderType = 0,
-                            TaxPercentage = 0.085m,
-                            Total = 20m,
-                            TotalBeforeDiscounts = 20m
-                        },
-                        new
-                        {
-                            OrderId = 5,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(7777),
-                            CustomerId = 2,
-                            DeliveryAddress = "123 Main St",
-                            DiscountAmount = 0m,
-                            IsDeleted = false,
-                            Note = "Please ring the bell",
-                            OrderStatus = 0,
-                            OrderType = 2,
-                            TaxPercentage = 0.085m,
-                            Total = 22.5m,
-                            TotalBeforeDiscounts = 25m
-                        });
                 });
 
             modelBuilder.Entity("RMS.Core.Models.OrderItem", b =>
@@ -599,68 +347,6 @@ namespace RMS.Infrastructure.Migrations
                     b.HasIndex("UpdatedBy");
 
                     b.ToTable("OrderItems");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(8356),
-                            IsDeleted = false,
-                            MenuItemId = 1,
-                            OrderId = 1,
-                            Quantity = 2,
-                            UnitPrice = 0m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(9056),
-                            IsDeleted = false,
-                            MenuItemId = 3,
-                            OrderId = 1,
-                            Quantity = 1,
-                            UnitPrice = 0m
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(9057),
-                            IsDeleted = false,
-                            MenuItemId = 2,
-                            OrderId = 2,
-                            Quantity = 1,
-                            UnitPrice = 0m
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(9058),
-                            IsDeleted = false,
-                            MenuItemId = 5,
-                            OrderId = 2,
-                            Quantity = 2,
-                            UnitPrice = 0m
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(9059),
-                            IsDeleted = false,
-                            MenuItemId = 4,
-                            OrderId = 3,
-                            Quantity = 1,
-                            UnitPrice = 0m
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(9060),
-                            IsDeleted = false,
-                            MenuItemId = 6,
-                            OrderId = 3,
-                            Quantity = 1,
-                            UnitPrice = 0m
-                        });
                 });
 
             modelBuilder.Entity("RMS.Core.Models.Reservation", b =>
@@ -698,6 +384,9 @@ namespace RMS.Infrastructure.Migrations
                     b.Property<int>("NumberOfGuests")
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("ReservationCreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("ReservationStatus")
                         .HasColumnType("int");
 
@@ -732,49 +421,6 @@ namespace RMS.Infrastructure.Migrations
                     b.HasIndex("UpdatedBy");
 
                     b.ToTable("Reservations");
-
-                    b.HasData(
-                        new
-                        {
-                            ReservationId = 1,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(9495),
-                            CustomerId = 2,
-                            DurationInMinutes = 90,
-                            IsDeleted = false,
-                            NumberOfGuests = 2,
-                            ReservationStatus = 1,
-                            SpecialRequests = "Window seat please",
-                            StartTime = new DateTime(2025, 6, 7, 13, 0, 0, 0, DateTimeKind.Unspecified),
-                            TableId = 2
-                        },
-                        new
-                        {
-                            ReservationId = 2,
-                            AssignedStaffId = 6,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 573, DateTimeKind.Utc).AddTicks(2309),
-                            CustomerId = 2,
-                            DurationInMinutes = 90,
-                            IsDeleted = false,
-                            NumberOfGuests = 2,
-                            ReservationStatus = 0,
-                            SpecialRequests = "Quiet area",
-                            StartTime = new DateTime(2025, 6, 7, 15, 0, 0, 0, DateTimeKind.Unspecified),
-                            TableId = 2
-                        },
-                        new
-                        {
-                            ReservationId = 3,
-                            AssignedStaffId = 5,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 573, DateTimeKind.Utc).AddTicks(2510),
-                            CustomerId = 1,
-                            DurationInMinutes = 60,
-                            IsDeleted = false,
-                            NumberOfGuests = 4,
-                            ReservationStatus = 1,
-                            SpecialRequests = "Window seat",
-                            StartTime = new DateTime(2025, 6, 7, 14, 0, 0, 0, DateTimeKind.Unspecified),
-                            TableId = 1
-                        });
                 });
 
             modelBuilder.Entity("RMS.Core.Models.Table", b =>
@@ -824,44 +470,6 @@ namespace RMS.Infrastructure.Migrations
                     b.HasIndex("UpdatedBy");
 
                     b.ToTable("Tables");
-
-                    b.HasData(
-                        new
-                        {
-                            TableId = 1,
-                            Capacity = 4,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(1939),
-                            IsAvailable = false,
-                            IsDeleted = false,
-                            TableNumber = 1
-                        },
-                        new
-                        {
-                            TableId = 2,
-                            Capacity = 2,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(2733),
-                            IsAvailable = false,
-                            IsDeleted = false,
-                            TableNumber = 2
-                        },
-                        new
-                        {
-                            TableId = 3,
-                            Capacity = 6,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(2735),
-                            IsAvailable = true,
-                            IsDeleted = false,
-                            TableNumber = 3
-                        },
-                        new
-                        {
-                            TableId = 4,
-                            Capacity = 8,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(2736),
-                            IsAvailable = true,
-                            IsDeleted = false,
-                            TableNumber = 4
-                        });
                 });
 
             modelBuilder.Entity("RMS.Core.Models.User", b =>
@@ -933,100 +541,6 @@ namespace RMS.Infrastructure.Migrations
                     b.HasIndex("UpdatedBy");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = 1,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(3739),
-                            Email = "aya.khaled@example.com",
-                            HashedPassword = "123456",
-                            IsDeleted = false,
-                            PhoneNumber = "0100000001",
-                            UserName = "Aya Khaled",
-                            UserType = 0
-                        },
-                        new
-                        {
-                            UserId = 2,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(4911),
-                            Email = "doha.ezzat@example.com",
-                            HashedPassword = "123456",
-                            IsDeleted = false,
-                            PhoneNumber = "0100000002",
-                            UserName = "Doha Ezzat",
-                            UserType = 0
-                        },
-                        new
-                        {
-                            UserId = 3,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(4913),
-                            Email = "jameela.abdulrahman@example.com",
-                            HashedPassword = "123456",
-                            IsDeleted = false,
-                            PhoneNumber = "0100000003",
-                            UserName = "Jameela Abdulrahman",
-                            UserType = 0
-                        },
-                        new
-                        {
-                            UserId = 4,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(4915),
-                            Email = "shimaa.mohamed@example.com",
-                            HashedPassword = "123456",
-                            IsDeleted = false,
-                            PhoneNumber = "0100000004",
-                            UserName = "Shimaa Mohamed",
-                            UserType = 0
-                        },
-                        new
-                        {
-                            UserId = 5,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(4916),
-                            Email = "karim.elshenawy@rms.com",
-                            HashedPassword = "123456",
-                            IsDeleted = false,
-                            PhoneNumber = "0100000005",
-                            StaffPosition = 0,
-                            UserName = "Karim ElShenawy",
-                            UserType = 1
-                        },
-                        new
-                        {
-                            UserId = 6,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(5379),
-                            Email = "laila.hassan@rms.com",
-                            HashedPassword = "123456",
-                            IsDeleted = false,
-                            PhoneNumber = "0100000006",
-                            StaffPosition = 1,
-                            UserName = "Laila Hassan",
-                            UserType = 1
-                        },
-                        new
-                        {
-                            UserId = 7,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(5381),
-                            Email = "mohamed.tarek@rms.com",
-                            HashedPassword = "123456",
-                            IsDeleted = false,
-                            PhoneNumber = "0100000007",
-                            StaffPosition = 2,
-                            UserName = "Mohamed Tarek",
-                            UserType = 1
-                        },
-                        new
-                        {
-                            UserId = 8,
-                            CreatedAt = new DateTime(2025, 6, 18, 20, 1, 43, 572, DateTimeKind.Utc).AddTicks(5383),
-                            Email = "sara.mostafa@rms.com",
-                            HashedPassword = "123456",
-                            IsDeleted = false,
-                            PhoneNumber = "0100000008",
-                            StaffPosition = 3,
-                            UserName = "Sara Mostafa",
-                            UserType = 1
-                        });
                 });
 
             modelBuilder.Entity("RMS.Core.Models.Category", b =>
