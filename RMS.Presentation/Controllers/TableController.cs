@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RMS.Application.Services.Table;
+using RMS.Application.Services.TableService;
 
 namespace RMS.Presentation.Controllers
 {

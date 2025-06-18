@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RMS.Application.Services.Reservation
+namespace RMS.Application.Services.ReservationService
 {
     public class ReservationServices : IReservationServices
     {

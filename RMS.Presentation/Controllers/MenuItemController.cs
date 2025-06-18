@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RMS.Application.Services.MenuItem;
+using RMS.Application.Services.MenuItemService;
 
 namespace RMS.Presentation.Controllers
 {

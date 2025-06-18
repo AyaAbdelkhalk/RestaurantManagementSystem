@@ -1,4 +1,4 @@
-﻿namespace RMS.Application.Services.Order
+﻿namespace RMS.Application.Services.OrderService
 {
     public interface IOrderServices
     {

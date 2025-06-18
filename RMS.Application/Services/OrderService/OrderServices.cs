@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RMS.Application.Services.Order
+namespace RMS.Application.Services.OrderService
 {
     public class OrderServices : IOrderServices
     {

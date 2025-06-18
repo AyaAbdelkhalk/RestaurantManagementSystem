@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RMS.Application.Services.Customer;
+using RMS.Application.Services.UserService;
 
 namespace RMS.Presentation.Controllers
 {

@@ -3,14 +3,14 @@ using RMS.Application.Interfaces;
 using RMS.Infrastructure;
 using RMS.Infrastructure.Repository;
 using RMS.Application.Services;
-using RMS.Application.Services.Category;
-using RMS.Application.Services.Coupon;
-using RMS.Application.Services.Customer;
-using RMS.Application.Services.Order;
-using RMS.Application.Services.OrderItem;
-using RMS.Application.Services.Table;
-using RMS.Application.Services.MenuItem;
-using RMS.Application.Services.Reservation;
+using RMS.Application.Services.CategoryService;
+using RMS.Application.Services.CouponService;
+using RMS.Application.Services.UserService;
+using RMS.Application.Services.OrderService;
+using RMS.Application.Services.OrderItemService;
+using RMS.Application.Services.TableService;
+using RMS.Application.Services.MenuItemService;
+using RMS.Application.Services.ReservationService;
 namespace RMS.Presentation
 {
     public class Program

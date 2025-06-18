@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RMS.Application.Services.Order;
+using RMS.Application.Services.OrderService;
 
 namespace RMS.Presentation.Controllers
 {

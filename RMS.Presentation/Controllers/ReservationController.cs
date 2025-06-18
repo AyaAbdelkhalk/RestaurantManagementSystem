@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RMS.Application.Services.Reservation;
+using RMS.Application.Services.ReservationService;
 
 namespace RMS.Presentation.Controllers
 {

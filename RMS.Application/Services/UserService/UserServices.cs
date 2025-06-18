@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RMS.Application.Services.Customer
+namespace RMS.Application.Services.UserService
 {
     public class UserServices : IUserServices
     {

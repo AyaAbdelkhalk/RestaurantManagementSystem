@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RMS.Application.Services.Coupon
+namespace RMS.Application.Services.CouponService
 {
     public class CouponServices : ICouponServices
     {

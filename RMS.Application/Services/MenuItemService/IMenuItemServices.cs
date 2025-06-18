@@ -1,4 +1,4 @@
-﻿namespace RMS.Application.Services.MenuItem
+﻿namespace RMS.Application.Services.MenuItemService
 {
     public interface IMenuItemServices
     {

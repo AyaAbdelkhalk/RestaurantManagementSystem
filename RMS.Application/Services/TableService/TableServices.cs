@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RMS.Application.Services.Table
+namespace RMS.Application.Services.TableService
 {
     public class TableServices : ITableServices
     {

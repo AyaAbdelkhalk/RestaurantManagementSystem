@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RMS.Application.Services.Category;
+using RMS.Application.Services.CategoryService;
 
 namespace RMS.Presentation.Controllers
 {

@@ -1,4 +1,4 @@
-﻿namespace RMS.Application.Services.Reservation
+﻿namespace RMS.Application.Services.ReservationService
 {
     public interface IReservationServices
     {

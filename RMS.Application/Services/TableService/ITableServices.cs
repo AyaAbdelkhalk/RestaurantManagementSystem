@@ -1,4 +1,4 @@
-﻿namespace RMS.Application.Services.Table
+﻿namespace RMS.Application.Services.TableService
 {
     public interface ITableServices
     {

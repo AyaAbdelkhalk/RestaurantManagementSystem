@@ -1,11 +1,12 @@
 ﻿using RMS.Application.Interfaces;
+using RMS.Application.Services.CategoryService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RMS.Application.Services.Category
+namespace RMS.Application.Services.CategoryService
 {
     public class CategoryServices : ICategoryServices
     {

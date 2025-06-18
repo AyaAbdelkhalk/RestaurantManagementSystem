@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using RMS.Application.Services.Coupon;
+using RMS.Application.Services.CouponService;
 
 namespace RMS.Presentation.Controllers
 {
