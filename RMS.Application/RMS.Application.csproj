@@ -11,9 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ViewModels\CouponViewModel\" />
     <Folder Include="ViewModels\CustomerViewModel\" />
-    <Folder Include="ViewModels\MenuItemViewModel\" />
     <Folder Include="ViewModels\TableViewModel\" />
     <Folder Include="ViewModels\StaffViewModel\" />
     <Folder Include="ViewModels\ReservationViewModel\" />

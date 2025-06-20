@@ -11,7 +11,7 @@ namespace RMS.Core.Models
     public class Order : BaseEntity
     {
         public int OrderId { get; set; }
-        public int CustomerId { get; set; }
+        public string CustomerId { get; set; }
         public virtual User? Customer { get; set; }
         //public DateTime? OrderTime { get; set; }
         public DateTime? DeliveryTime { get; set; } 
@@ -34,10 +34,8 @@ namespace RMS.Core.Models
         public Coupon? Coupon { get; set; }
         public int? TableId { get; set; }
         public virtual Table? Table { get; set; }
-        //public int? StaffId { get; set; }
-        //public virtual Staff? Staff { get; set; }
 
-        public int? AssignedStaffId { get; set; } // Staff
+        public string? AssignedStaffId { get; set; } // Staff
         public virtual User? AssignedStaff { get; set; }
 
 

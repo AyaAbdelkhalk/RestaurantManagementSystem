@@ -9,6 +9,8 @@ namespace RMS.Application.Interfaces
 {
     public interface ICategoryRepository : IGenericRepository<Category>
     {
-        
+        Task<List<Category>> SearchAsync(string searchTerm);
+
     }
+
 }

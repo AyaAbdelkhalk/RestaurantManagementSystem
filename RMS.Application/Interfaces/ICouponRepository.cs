@@ -9,5 +9,7 @@ namespace RMS.Application.Interfaces
 {
     public interface ICouponRepository : IGenericRepository<Coupon>
     {
+        public Task<int> IsValid(int id);
+        public Task<Coupon?> SearchByCodeAsync(string couponCode);
     }
 }

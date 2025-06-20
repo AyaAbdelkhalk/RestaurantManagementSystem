@@ -1,5 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RMS.Application.Interfaces;
+using RMS.Application.Services.UserService;
+using RMS.Core.Interfaces;
 using RMS.Core.Models;
 using System;
 using System.Collections.Generic;
@@ -13,13 +15,22 @@ namespace RMS.Infrastructure.Repository
     {
         protected readonly RMSDbContext _context;
         protected readonly DbSet<T> _dbSet;
-        public GenericRepository(RMSDbContext context)
+        private readonly ICurrentUserService _currentUserService;
+
+        public GenericRepository(RMSDbContext context, ICurrentUserService currentUserService)
         {
             _context = context;
             _dbSet = _context.Set<T>();
+            _currentUserService = currentUserService;
         }
         public async Task<T> AddAsync(T entity)
         {
+            if (entity is IBaseEntity baseEntity)
+            {
+                baseEntity.CreatedAt = DateTime.UtcNow;
+                baseEntity.CreatedBy = _currentUserService.GetCurrentUserId();
+                baseEntity.IsDeleted = false; 
+            }
             await _dbSet.AddAsync(entity);
             await _context.SaveChangesAsync();
             return entity;
@@ -29,13 +40,11 @@ namespace RMS.Infrastructure.Repository
         {
             //soft delete
             var entity = await _dbSet.FindAsync(id);
-            var baseEntity = entity as BaseEntity;
-            if (baseEntity != null)
+            if (entity is IBaseEntity baseEntity)
             {
                 baseEntity.IsDeleted = true;
                 baseEntity.DeletedAt = DateTime.UtcNow;
-                //_dbSet.Update(baseEntity);
-                //ملهاش لازمه عشان الفايند لما بتجيب انتيتي بتبقى تراكد ف بيتسمع من السيف اتشينزيز 
+                baseEntity.DeletedBy = _currentUserService.GetCurrentUserId();
             }
             else
             {
@@ -45,7 +54,7 @@ namespace RMS.Infrastructure.Repository
             return entity;
         }
 
-        public async Task<IQueryable<T>> GetAllAsync()
+        public IQueryable<T> GetAllAsync()
         {
             return _dbSet.AsQueryable();
         }
@@ -57,6 +66,12 @@ namespace RMS.Infrastructure.Repository
 
         public async Task<T> UpdateAsync(T entity)
         {
+            if (entity is IBaseEntity baseEntity)
+            {
+                var userId = _currentUserService.GetCurrentUserId();
+                baseEntity.UpdatedBy = userId;
+                baseEntity.UpdatedAt = DateTime.UtcNow;
+            }
             _dbSet.Update(entity);
             await _context.SaveChangesAsync();
             return entity;

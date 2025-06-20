@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RMS.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,9 +15,6 @@ namespace RMS.Core.Models
         //public string? ImageUrl { get; set; }
         public bool IsActive { get; set; }
         public virtual ICollection<MenuItem>? MenuItems { get; set; } = new List<MenuItem>();
-
-
-
 
     }
 }

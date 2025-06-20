@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RMS.Application.Interfaces;
+using RMS.Application.Services.UserService;
 using RMS.Core.Models;
 using System;
 using System.Collections.Generic;
@@ -11,11 +12,23 @@ namespace RMS.Infrastructure.Repository
 {
     public class CategoryRepository : GenericRepository<Category>, ICategoryRepository
     {
-        public CategoryRepository(RMSDbContext context) : base(context)
-        {
+        private readonly ICurrentUserService _currentUserService;
 
+        public CategoryRepository(RMSDbContext context, ICurrentUserService currentUserService) : base(context, currentUserService)
+        {
+            _currentUserService = currentUserService;
         }
-        // get all categories with menu items
-        
+
+        public async Task<List<Category>> SearchAsync(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm))
+            {
+                var allCategories = GetAllAsync();
+                return await allCategories.ToListAsync();
+            }
+            return await _context.Categories
+                .Where(c => c.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                .ToListAsync();
+        }
     }
 }

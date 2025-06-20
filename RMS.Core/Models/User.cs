@@ -1,4 +1,6 @@
-﻿using RMS.Core.Enum;
+﻿using Microsoft.AspNetCore.Identity;
+using RMS.Core.Enum;
+using RMS.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,27 +10,35 @@ using System.Threading.Tasks;
 
 namespace RMS.Core.Models
 {
-    public class User : BaseEntity
+    public class User : IdentityUser ,IBaseEntity
     {
-        public int UserId { get; set; }
-        public string UserName { get; set; }
-        [EmailAddress] 
-        public string Email { get; set; }
-        public string PhoneNumber { get; set; }
         public string? Address { get; set; }
-        public string HashedPassword { get; set; }
         public DateTime? DateOfBirth { get; set; }
-        public UserType UserType { get; set; } //Admin, Customer, Staff
+        public string? ProfilePicture { get; set; }
         public StaffPosition? StaffPosition { get; set; } //Chef, Waiter, Manager
-        public string? ProfilePicture { get; set; } // URL or path to the profile picture
+
+        // Ibase props
+        public DateTime CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public DateTime? DeletedAt { get; set; }
+        public bool IsDeleted { get; set; }
+        public string? CreatedBy { get; set; }
+        public string? UpdatedBy { get; set; }
+        public string? DeletedBy { get; set; }
 
         //Navigation properties for staff
-        public virtual ICollection<Order>? AssignedOrders { get; set; } = new List<Order>();
-        public virtual ICollection<Reservation>? AssignedReservations { get; set; } = new List<Reservation>();
+        public virtual ICollection<Order>? OrdersAssignedToStaff { get; set; } = new List<Order>();
+        public virtual ICollection<Reservation>? ReservationsHandledByStaff { get; set; } = new List<Reservation>();
 
         // Navigation properties for customer
-        public virtual ICollection<Reservation>? CustomerReservations { get; set; } = new List<Reservation>();
-        public virtual ICollection<Order>? CustomerOrders { get; set; } = new List<Order>();
+        public virtual ICollection<Reservation>? ReservationsMadeByCustomer { get; set; } = new List<Reservation>();
+        public virtual ICollection<Order>? OrdersPlacedByCustomer { get; set; } = new List<Order>();
+
+        public User()
+        {
+            CreatedAt = DateTime.UtcNow;
+            IsDeleted = false;
+        }
 
 
     }

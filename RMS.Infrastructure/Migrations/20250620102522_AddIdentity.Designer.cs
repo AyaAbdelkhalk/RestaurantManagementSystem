@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RMS.Infrastructure;
 
@@ -11,9 +12,11 @@ using RMS.Infrastructure;
 namespace RMS.Infrastructure.Migrations
 {
     [DbContext(typeof(RMSDbContext))]
-    partial class RMSDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250620102522_AddIdentity")]
+    partial class AddIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -692,10 +695,6 @@ namespace RMS.Infrastructure.Migrations
 
                     b.HasIndex("DeletedBy");
 
-                    b.HasIndex("Email")
-                        .IsUnique()
-                        .HasFilter("[Email] IS NOT NULL");
-
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
 
@@ -705,10 +704,6 @@ namespace RMS.Infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.HasIndex("UpdatedBy");
-
-                    b.HasIndex("UserName")
-                        .IsUnique()
-                        .HasFilter("[UserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });

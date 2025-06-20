@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace RMS.Core.Enum
 {
-    public enum UserType
-    {
-        Customer = 0,
-        Staff = 1,
-        Admin = 2
-    }
+    //public enum UserType
+    //{
+    //    Customer = 0,
+    //    Staff = 1,
+    //    Admin = 2
+    //}
 }
