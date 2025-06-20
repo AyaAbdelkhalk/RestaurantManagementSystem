@@ -9,7 +9,7 @@ namespace RMS.Application.Interfaces
     public interface IGenericRepository<T> where T : class
     {
         public Task<T> GetByIdAsync(int id);
-        public Task<IQueryable<T>> GetAllAsync();
+        public IQueryable<T> GetAllAsync();
         public Task<T> AddAsync(T entity);
         public Task<T> UpdateAsync(T entity);
         public Task<T> DeleteAsync(int id);

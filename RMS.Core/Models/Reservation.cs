@@ -11,7 +11,7 @@ namespace RMS.Core.Models
     public class Reservation : BaseEntity
     {
         public int ReservationId { get; set; }
-        public int CustomerId { get; set; }
+        public string CustomerId { get; set; }
         public virtual User Customer { get; set; }
 
         [Range(1, int.MaxValue, ErrorMessage = "Number of guests must be at least 1")]
@@ -22,7 +22,7 @@ namespace RMS.Core.Models
         public int TableId { get; set; }
         public virtual Table? Table { get; set; }
         public ReservationStatus ReservationStatus { get; set; } = ReservationStatus.Pending;
-        public int? AssignedStaffId { get; set; } 
+        public string? AssignedStaffId { get; set; } 
         public virtual User? AssignedStaff { get; set; } 
         // scheduling 
         public DateTime StartTime { get; set; }

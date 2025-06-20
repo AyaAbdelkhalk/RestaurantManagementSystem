@@ -1,4 +1,5 @@
 ﻿using RMS.Application.Interfaces;
+using RMS.Application.Services.UserService;
 using RMS.Core.Models;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,10 @@ namespace RMS.Infrastructure.Repository
 {
     public class ReservationRepository : GenericRepository<Reservation>, IReservationRepository
     {
-        public ReservationRepository(RMSDbContext context) : base(context)
+        private readonly ICurrentUserService _currentUserService;
+        public ReservationRepository(RMSDbContext context, ICurrentUserService currentUserService) : base(context, currentUserService)
         {
+            _currentUserService = currentUserService;
         }
     }
 }
