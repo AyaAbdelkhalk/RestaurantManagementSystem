@@ -1,0 +1,66 @@
+﻿@model RMS.Application.ViewModels.MenuItemViewModel.UpdateMenuItemVM
+@{
+    ViewData["Title"] = "Edit Menu Item";
+    var categories = ViewBag.Categories as List<RMS.Application.ViewModels.CategoryViewModel.GetCategoryDetailsVM>;
+}
+<h2>Edit Menu Item</h2>
+
+<form asp-action="Edit" enctype="multipart/form-data">
+    <input type="hidden" asp-for="MenuItemId" />
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PreparationTime"></label>
+        <input asp-for="PreparationTime" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IsAvailable">Available</label>
+        <input asp-for="IsAvailable" type="checkbox" class="form-check-input" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CategoryId">Category</label>
+        <select asp-for="CategoryId" class="form-control" asp-items="@(new SelectList(categories, "CategoryId", "Name", Model.CategoryId))">
+            <option value="">-- Select Category --</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Current Image</label><br />
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <img src="~/@Model.ImageUrl" width="120" />
+        }
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Image">Change Image</label>
+        <input asp-for="Image" type="file" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save Changes</button>
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -12,9 +12,9 @@ namespace RMS.Application.Services.CategoryService
     public interface ICategoryServices
     {
         Task<List<GetCategoryDetailsVM>> GetAllCategoriesAsync();
-        Task<GetCategoryDetailsVM> GetCategoryByIdAsync(int id);
-        Task<GetCategoryDetailsVM> CreateCategoryAsync(AddCategoryVM category);
-        Task<GetCategoryDetailsVM> UpdateCategoryAsync(AddCategoryVM category);
+        Task<GetCategoryDetailsVM?> GetCategoryByIdAsync(int id);
+        Task<AddCategoryVM> AddCategoryAsync(AddCategoryVM category);
+        Task<UpdateCategoryVM> UpdateCategoryAsync(int id, UpdateCategoryVM category);
         Task<bool> DeleteCategoryAsync(int id);
         Task<List<GetCategoryDetailsVM>> SearchCategoriesAsync(string searchTerm);
 

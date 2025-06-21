@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace RMS.Application.ViewModels.CategoryViewModel
 {
-    public class GetCategoryDetailsVM
+    public class UpdateCategoryVM
     {
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }
-        public bool IsActive { get; set; }
-
-
+        public bool IsActive { get; set; } = true;
     }
 }

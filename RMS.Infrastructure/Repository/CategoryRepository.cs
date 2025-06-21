@@ -30,5 +30,20 @@ namespace RMS.Infrastructure.Repository
                 .Where(c => c.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
                 .ToListAsync();
         }
-    }
+        
+        public async Task<IEnumerable<Category>> GetActiveCategoriesAsync()
+        {
+            return await _context.Categories
+                .Where(c => !c.IsDeleted && c.IsActive && c.MenuItems.Any(i => i.IsAvailable))
+                .ToListAsync();
+        }
+        public async Task<Category?> GetCategoryWithItemsAsync(int id)
+        {
+            return await _context.Categories
+                .Include(c => c.MenuItems.Where(i => i.IsAvailable))
+                .FirstOrDefaultAsync(c => c.CategoryId == id && !c.IsDeleted);
+        }
+
+
+        }
 }

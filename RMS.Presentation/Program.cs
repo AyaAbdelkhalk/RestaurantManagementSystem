@@ -1,3 +1,4 @@
+using Hangfire;
 using Mapster;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -28,6 +29,12 @@ namespace RMS.Presentation
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            //Hangfire configuration
+            builder.Services.AddHangfire(config =>
+                config.UseSqlServerStorage(builder.Configuration.GetConnectionString("HangfireDBV0")));
+
+            builder.Services.AddHangfireServer();
 
             #region Register R&S
             //Register Repositories
@@ -98,6 +105,17 @@ namespace RMS.Presentation
             }
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseHangfireDashboard();
+            //app.UseHangfireDashboard("/hangfire");
+            app.MapGet("/test-job", () =>
+            {
+                BackgroundJob.Enqueue(() => Console.WriteLine("Hello from Hangfire!"));
+                return "Job Added!";
+            });
+            RecurringJob.AddOrUpdate<IMenuItemServices>(
+                "daily-menuitem-reset",
+                service => service.ResetDailyAvailabilityAsync(),
+                Cron.Daily(0, 0)); 
             app.UseAuthentication();
             app.UseAuthorization();
 

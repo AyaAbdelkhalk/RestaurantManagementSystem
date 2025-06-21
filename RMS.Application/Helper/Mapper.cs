@@ -1,6 +1,7 @@
 ﻿using Mapster;
 using RMS.Application.ViewModels.CategoryViewModel;
 using RMS.Application.ViewModels.CouponViewModel;
+using RMS.Application.ViewModels.MenuItemViewModel;
 using RMS.Application.ViewModels.UserViewModel;
 using RMS.Core.Models;
 using System;
@@ -38,6 +39,7 @@ namespace RMS.Application.Helper
                     .TwoWays();
 
             #endregion
+
             #region CategoryMapping
             //Category to AddCategoryVM
             TypeAdapterConfig<Category, AddCategoryVM>
@@ -54,7 +56,72 @@ namespace RMS.Application.Helper
                     .Map(dest => dest.IsActive, src => src.IsActive)
                     .TwoWays();
 
+            TypeAdapterConfig<GetCategoryDetailsVM, AddCategoryVM>
+                    .NewConfig()
+                    .Map(dest => dest.Name, src => src.Name)
+                    .Map(dest => dest.Description, src => src.Description)
+                    .Map(dest => dest.IsActive, src => src.IsActive)
+                    .TwoWays();
 
+            TypeAdapterConfig<Category, UpdateCategoryVM>
+                    .NewConfig()
+                    .Map(dest => dest.Name, src => src.Name)
+                    .Map(dest => dest.Description, src => src.Description)
+                    .Map(dest => dest.IsActive, src => src.IsActive)
+                    .TwoWays();
+            #endregion
+
+            #region MenuItemMapping
+
+            //MenuItem to AddMenuItemVM
+            TypeAdapterConfig<MenuItem, AddMenuItemVM>
+                    .NewConfig()
+                    .Map(dest => dest.Name, src => src.Name)
+                    .Map(dest => dest.Description, src => src.Description)
+                    .Map(dest => dest.Price, src => src.UnitPrice)
+                    .Map(dest => dest.Image, src => src.ImageUrl)
+                    .Map(dest => dest.IsAvailable, src => src.IsAvailable)
+                    .Map(dest => dest.CategoryId, src => src.CategoryId)
+                    .Map(dest => dest.PreparationTime, src => src.PreparationTimeInMinutes)
+                    .TwoWays();
+            //MenuItem to GetMenuItemVM
+            TypeAdapterConfig<MenuItem, GetMenuItemVM>
+                    .NewConfig()
+                    .Map(dest => dest.Name, src => src.Name)
+                    .Map(dest => dest.Description, src => src.Description)
+                    .Map(dest => dest.UnitPrice, src => src.UnitPrice)
+                    .Map(dest => dest.ImageUrl, src => src.ImageUrl)
+                    .Map(dest => dest.IsAvailable, src => src.IsAvailable)
+                    .Map(dest => dest.CategoryId, src => src.CategoryId)
+                    .Map(dest => dest.CategoryName, src => src.Category.Name)
+                    .Map(dest => dest.PreparationTime, src => src.PreparationTimeInMinutes)
+                    .TwoWays();
+
+            //MenuItem to UpdateMenuItemVM
+            TypeAdapterConfig<MenuItem, UpdateMenuItemVM>
+                    .NewConfig()
+                    .Map(dest => dest.MenuItemId, src => src.MenuItemId)
+                    .Map(dest => dest.Name, src => src.Name)
+                    .Map(dest => dest.Description, src => src.Description)
+                    .Map(dest => dest.Price, src => src.UnitPrice)
+                    .Map(dest => dest.Image, src => src.ImageUrl)
+                    .Map(dest => dest.IsAvailable, src => src.IsAvailable)
+                    .Map(dest => dest.CategoryId, src => src.CategoryId)
+                    .Map(dest => dest.PreparationTime, src => src.PreparationTimeInMinutes)
+                    .TwoWays();
+
+            //GetMenuItemVM to UpdateMenuItemVM
+            TypeAdapterConfig<GetMenuItemVM, UpdateMenuItemVM>
+                    .NewConfig()
+                    .Map(dest => dest.MenuItemId, src => src.MenuItemId)
+                    .Map(dest => dest.Name, src => src.Name)
+                    .Map(dest => dest.Description, src => src.Description)
+                    .Map(dest => dest.Price, src => src.UnitPrice)
+                    .Map(dest => dest.ImageUrl, src => src.ImageUrl)
+                    .Map(dest => dest.IsAvailable, src => src.IsAvailable)
+                    .Map(dest => dest.CategoryId, src => src.CategoryId)
+                    .Map(dest => dest.PreparationTime, src => src.PreparationTime)
+                    .TwoWays();
 
             #endregion
 

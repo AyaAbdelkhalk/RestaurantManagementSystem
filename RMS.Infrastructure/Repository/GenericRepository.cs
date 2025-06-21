@@ -69,8 +69,15 @@ namespace RMS.Infrastructure.Repository
             if (entity is IBaseEntity baseEntity)
             {
                 var userId = _currentUserService.GetCurrentUserId();
-                baseEntity.UpdatedBy = userId;
-                baseEntity.UpdatedAt = DateTime.UtcNow;
+                if (!string.IsNullOrEmpty(userId))
+                {
+                    baseEntity.UpdatedBy = userId;
+                    baseEntity.UpdatedAt = DateTime.UtcNow;
+                }
+                else
+                {
+                    baseEntity.UpdatedBy = null;
+                }
             }
             _dbSet.Update(entity);
             await _context.SaveChangesAsync();

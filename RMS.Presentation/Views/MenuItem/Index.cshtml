@@ -1,0 +1,54 @@
+﻿@model List<RMS.Application.ViewModels.MenuItemViewModel.GetMenuItemVM>
+@{
+    ViewData["Title"] = "Menu Items";
+}
+<h2>Menu Items</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">Add New Menu Item</a>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Available</th>
+                <th>Category</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.ImageUrl))
+                        {
+                            <img src="~/@item.ImageUrl" alt="Image" width="80" height="60" />
+                        }
+                        else
+                        {
+                            <span>No Image</span>
+                        }
+                    </td>
+                    <td>@item.Name</td>
+                    <td>@item.UnitPrice.ToString("C")</td>
+                    <td>@(item.IsAvailable ? "Yes" : "No")</td>
+                    <td>@(item.CategoryName != null ? item.CategoryName : "No Category")</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.MenuItemId" class="btn btn-sm btn-warning">Edit</a>
+                        <a asp-action="Delete" asp-route-id="@item.MenuItemId" class="btn btn-sm btn-danger">Delete</a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No items available.</p>
+}
+

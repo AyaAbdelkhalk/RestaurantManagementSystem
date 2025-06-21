@@ -13,7 +13,7 @@ namespace RMS.Core.Models
         public string Name { get; set; }
         public string? Description { get; set; }
         //public string? ImageUrl { get; set; }
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; }//احذفيهاااااا
         public virtual ICollection<MenuItem>? MenuItems { get; set; } = new List<MenuItem>();
 
     }

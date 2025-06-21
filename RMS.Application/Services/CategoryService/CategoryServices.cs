@@ -29,23 +29,25 @@ namespace RMS.Application.Services.CategoryService
             }
             return result;
         }
-        public async Task<GetCategoryDetailsVM> GetCategoryByIdAsync(int id)
+        public async Task<GetCategoryDetailsVM?> GetCategoryByIdAsync(int id)
         {
             var category = await _categoryRepository.GetByIdAsync(id);
             if (category == null) return null;
             return category.Adapt<GetCategoryDetailsVM>();
         }
-        public async Task<GetCategoryDetailsVM> CreateCategoryAsync(AddCategoryVM category)
+        public async Task<AddCategoryVM> AddCategoryAsync(AddCategoryVM category)
         {
             var mappedCategory = category.Adapt<Category>();
             var createdCategory = await _categoryRepository.AddAsync(mappedCategory);
-            return createdCategory.Adapt<GetCategoryDetailsVM>();
+            return createdCategory.Adapt<AddCategoryVM>();
         }
-        public async Task<GetCategoryDetailsVM> UpdateCategoryAsync(AddCategoryVM category)
+        public async Task<UpdateCategoryVM> UpdateCategoryAsync(int id, UpdateCategoryVM category)
         {
-            var mappedCategory = category.Adapt<Category>();
-            var updatedCategory = await _categoryRepository.UpdateAsync(mappedCategory);
-            return updatedCategory.Adapt<GetCategoryDetailsVM>();
+            var existingCategory = await _categoryRepository.GetByIdAsync(id);
+            if (existingCategory == null) return null;
+            category.Adapt(existingCategory);
+            var updatedCategory = await _categoryRepository.UpdateAsync(existingCategory);
+            return updatedCategory.Adapt<UpdateCategoryVM>();
         }
         public async Task<bool> DeleteCategoryAsync(int id)
         {
