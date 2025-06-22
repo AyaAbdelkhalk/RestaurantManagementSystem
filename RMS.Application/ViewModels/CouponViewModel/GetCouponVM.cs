@@ -8,6 +8,7 @@ namespace RMS.Application.ViewModels.CouponViewModel
 {
     public class GetCouponVM
     {
+        public int CouponId { get; set; }
         public string CouponCode { get; set; }
         public DateTime ExpirationDate { get; set; }
         public bool IsActive { get; set; } = true;

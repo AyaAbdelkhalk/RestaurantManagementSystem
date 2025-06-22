@@ -12,11 +12,8 @@
 
   <ItemGroup>
     <Folder Include="ViewModels\CustomerViewModel\" />
-    <Folder Include="ViewModels\TableViewModel\" />
     <Folder Include="ViewModels\StaffViewModel\" />
     <Folder Include="ViewModels\ReservationViewModel\" />
-    <Folder Include="ViewModels\OrderItemViewModel\" />
-    <Folder Include="ViewModels\OrderViewModel\" />
   </ItemGroup>
 
   <ItemGroup>

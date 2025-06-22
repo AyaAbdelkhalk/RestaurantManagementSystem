@@ -158,13 +158,15 @@ namespace RMS.Infrastructure
                 {
                     entry.Entity.CreatedAt = DateTime.UtcNow;
                     entry.Entity.CreatedBy = string.IsNullOrEmpty(userId) ? null : userId;
-                    entry.Entity.SetCreatedBy(userId?? "system");
+                    if (!string.IsNullOrEmpty(userId))
+                        entry.Entity.SetCreatedBy(userId);
                 }
                 else if (entry.State == EntityState.Modified)
                 {
                     entry.Entity.UpdatedAt = DateTime.UtcNow;
                     entry.Entity.UpdatedBy = string.IsNullOrEmpty(userId) ? null : userId;
-                    entry.Entity.SetUpdatedBy(userId?? "system");
+                    if (!string.IsNullOrEmpty(userId))
+                        entry.Entity.SetUpdatedBy(userId);
                 }
                 else if (entry.State == EntityState.Deleted)
                 {
@@ -172,7 +174,8 @@ namespace RMS.Infrastructure
                     entry.Entity.IsDeleted = true;
                     entry.Entity.DeletedAt = DateTime.UtcNow;
                     entry.Entity.DeletedBy = string.IsNullOrEmpty(userId) ? null : userId;
-                    entry.Entity.SetDeletedBy(userId?? "system");
+                    if (!string.IsNullOrEmpty(userId))
+                        entry.Entity.SetDeletedBy(userId);
                 }
             }
         }

@@ -12,8 +12,8 @@ namespace RMS.Application.Services.CouponService
     {
         Task<List<GetCouponVM>> GetAllCouponsAsync();
         Task<GetCouponVM> GetCouponByIdAsync(int id);
-        Task<GetCouponVM> CreateCouponAsync(AddCouponVM coupon);
-        Task<GetCouponVM> UpdateCouponAsync(int id,AddCouponVM coupon);
+        Task<AddCouponVM> CreateCouponAsync(AddCouponVM coupon);
+        Task<UpdateCouponVM?> UpdateCouponAsync(int id, UpdateCouponVM coupon);
         Task<bool> DeleteCouponAsync(int id);
 
         //not in generic repository

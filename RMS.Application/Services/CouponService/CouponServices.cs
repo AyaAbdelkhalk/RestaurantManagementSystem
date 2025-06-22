@@ -1,4 +1,5 @@
 ﻿using Mapster;
+using Microsoft.EntityFrameworkCore;
 using RMS.Application.Interfaces;
 using RMS.Application.ViewModels.CouponViewModel;
 using RMS.Core.Models;
@@ -18,16 +19,15 @@ namespace RMS.Application.Services.CouponService
             _couponRepository = couponRepository;
         }
 
-        public async Task<GetCouponVM> CreateCouponAsync(AddCouponVM coupon)
+        public async Task<AddCouponVM> CreateCouponAsync(AddCouponVM coupon)
         {
             var mappedCoupon = coupon.Adapt<Coupon>();
-            var createdCoupon = await _couponRepository.AddAsync(mappedCoupon);
-            var result = createdCoupon.Adapt<GetCouponVM>();
-            return result;
+            await _couponRepository.AddAsync(mappedCoupon);
+            return coupon;
         }
         public async Task<List<GetCouponVM>> GetAllCouponsAsync()
         {
-            var coupons = _couponRepository.GetAllAsync();
+            var coupons = await _couponRepository.GetAllAsync().ToListAsync();
             List<GetCouponVM> result = new List<GetCouponVM>();
             foreach (var coupon in coupons)
             {
@@ -44,13 +44,18 @@ namespace RMS.Application.Services.CouponService
             return coupon.Adapt<GetCouponVM>();
         }
 
-        public async Task<GetCouponVM> UpdateCouponAsync(int id, AddCouponVM couponvm)
+        public async Task<UpdateCouponVM> UpdateCouponAsync(int id, UpdateCouponVM couponvm)
         {
-            var existingCoupon = _couponRepository.GetByIdAsync(id);
+            var existingCoupon = await _couponRepository.GetByIdAsync(id);
             if (existingCoupon == null) return null;
-            var coupon = couponvm.Adapt<Coupon>();  
-            var updatedCoupon = await _couponRepository.UpdateAsync(coupon);
-            return updatedCoupon.Adapt<GetCouponVM>();
+            existingCoupon.Code = couponvm.CouponCode;
+            existingCoupon.DiscountAmount = couponvm.DiscountAmount;
+            existingCoupon.ExpirationDate = couponvm.ExpirationDate;
+            existingCoupon.IsActive = couponvm.IsActive;
+            existingCoupon.DiscountPercentage = couponvm.DiscountPercentage;
+
+            await _couponRepository.UpdateAsync(existingCoupon);
+            return couponvm;
         }
         public async Task<bool> DeleteCouponAsync(int id)
         {

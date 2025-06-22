@@ -11,10 +11,19 @@ namespace RMS.Application.ViewModels.CouponViewModel
     [Index(nameof(CouponCode), IsUnique = true)]
     public class AddCouponVM
     {
-        public string CouponCode { get; set; } = string.Empty;
-        public DateTime ExpirationDate { get; set; }
-        public bool IsActive { get; set; } = true;
+
+
+        [Required(ErrorMessage = "Coupon code is required")]
+        public string CouponCode { get; set; }
+
+        [Range(0.01, 100.00)]
         public decimal? DiscountPercentage { get; set; }
-        public decimal? DiscountAmount { get; set; } = 0.00m;
+
+        [Range(0.01, double.MaxValue)]
+        public decimal? DiscountAmount { get; set; }
+
+        public bool IsActive { get; set; }
+
+        public DateTime? ExpirationDate { get; set; }
     }
 }
