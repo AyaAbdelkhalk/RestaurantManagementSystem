@@ -29,8 +29,16 @@ namespace RMS.Application.Services.OrderService
         {
             var order = vm.Adapt<Order>();
             order.CustomerId = _currentUserService.GetCurrentUserId() ?? string.Empty;
-            order.CouponId = vm.CouponId > 0 ? vm.CouponId : null;
-            
+            //parse the coupon code to int
+            if (!string.IsNullOrEmpty(vm.CouponCode) && int.TryParse(vm.CouponCode, out int couponId))
+            {
+                order.CouponId = couponId;
+            }
+
+
+
+            //order.CouponId = 
+
             await _orderRepository.AddAsync(order);
             return vm;
         }
@@ -124,7 +132,10 @@ namespace RMS.Application.Services.OrderService
         {
             var existingOrder = await _orderRepository.GetByIdAsync(orderId);
             if (existingOrder == null) return null;
-
+            if (!string.IsNullOrEmpty(model.CouponCode) && int.TryParse(model.CouponCode, out int couponId))
+            {
+                existingOrder.CouponId = couponId;
+            }
             model.Adapt(existingOrder);
             await _orderRepository.UpdateAsync(existingOrder);
             return model;
